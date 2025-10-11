@@ -51,7 +51,7 @@ export default function AboutSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-xl text-gray-300 max-w-3xl mx-auto"
         >
-          I'm a passionate software engineer with a strong foundation in mobile development, 
+          I&apos;m a passionate software engineer with a strong foundation in mobile development, 
           full-stack technologies, and data analysis. I love creating innovative solutions 
           and continuously learning new technologies.
         </motion.p>

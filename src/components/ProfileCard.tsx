@@ -58,7 +58,7 @@ export default function ProfileCard() {
         transition={{ duration: 0.6, delay: 0.6 }}
         className="flex justify-center gap-4"
       >
-        {socialLinks.map((link, index) => {
+        {socialLinks.map((link) => {
           const Icon = link.icon
           return (
             <motion.a

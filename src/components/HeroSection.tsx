@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Calendar, MapPin, Code, Database } from 'lucide-react'
+import { Calendar, Code, Database } from 'lucide-react'
 
 export default function HeroSection() {
   const stats = [
@@ -38,7 +38,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tight"
         >
-          <span className="block text-gray-300">Hi, I'm</span>
+          <span className="block text-gray-300">Hi, I&apos;m</span>
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
             Nathan Albe
           </span>
@@ -64,7 +64,6 @@ export default function HeroSection() {
         className="grid grid-cols-3 gap-6 sm:gap-8 max-w-2xl mx-auto"
       >
         {stats.map((stat, index) => {
-          const Icon = stat.icon
           return (
             <motion.div
               key={stat.label}
