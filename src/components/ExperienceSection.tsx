@@ -7,30 +7,39 @@ export default function ExperienceSection() {
   const experiences = [
     {
       title: 'Software Engineer Intern',
-      company: 'TechCorp Solutions',
+      company: 'Pinterest',
       location: 'Remote',
-      period: 'Summer 2023',
-      description: 'Developed mobile applications using React Native and contributed to full-stack web development projects. Collaborated with senior developers on feature implementation and code reviews.',
-      technologies: ['React Native', 'JavaScript', 'Node.js', 'MongoDB'],
-      link: '#'
+      period: 'May 2025 - Aug 2025',
+      description: 'Developed features for Pinterest iOS app serving 50+ million users. Redesigned metadata layouts boosting clickthrough rates by 13% and built dynamic color filters increasing engagement by 17%. Developed GraphQL APIs and iOS features in Objective-C and Python.',
+      technologies: ['Objective-C', 'Python', 'GraphQL', 'iOS Development'],
+      link: 'https://www.linkedin.com/posts/nathan-albe_pintern-pinterest-activity-7360671358873128963-obVd/'
     },
     {
-      title: 'Data Analysis Intern',
-      company: 'DataInsights Inc.',
-      location: 'New York, NY',
-      period: 'Spring 2023',
-      description: 'Analyzed large datasets using Python and R, created data visualizations, and presented findings to stakeholders. Improved data processing efficiency by 30%.',
-      technologies: ['Python', 'R', 'SQL', 'Tableau'],
-      link: '#'
+      title: 'Software Engineer Intern',
+      company: 'Lockheed Martin',
+      location: 'Owego, New York',
+      period: 'Aug 2024 - Jan 2025',
+      description: 'Enhanced system reliability by automating Jenkins builds, containerizing internal tools with Docker, and developing Java UI components that streamlined workflows and reduced deployment time by 30%.',
+      technologies: ['Java', 'Docker', 'Jenkins', 'Linux/Unix', 'JTheme'],
+      link: 'https://www.lockheedmartin.com/en-us/who-we-are/business-areas/rotary-and-mission-systems.html'
     },
     {
-      title: 'Mobile App Developer',
-      company: 'StartupXYZ',
-      location: 'San Francisco, CA',
-      period: 'Fall 2022',
-      description: 'Built cross-platform mobile applications using Flutter. Implemented real-time features and integrated third-party APIs. Led a team of 3 junior developers.',
-      technologies: ['Flutter', 'Dart', 'Firebase', 'REST APIs'],
-      link: '#'
+      title: 'Software Engineer Intern',
+      company: 'Applied Fundamentals Consulting',
+      location: 'Reston, Virginia',
+      period: 'Jun 2024 - Aug 2024',
+      description: 'Developed a VueJS + Quasar feedback web app with a built-in bug tracking and reporting system, cutting issue resolution time by 40% and earning 90% positive client feedback. Designed a PostgreSQL backend and collaborated in Agile sprints to streamline QA and product iteration.',
+      technologies: ['VueJS', 'Quasar', 'PostgreSQL', 'Agile/Scrum'],
+      link: 'https://www.linkedin.com/feed/update/urn:li:activity:7228747069107163136/'
+    },
+    {
+      title: 'iOS/Mobile Development Research Assistant',
+      company: 'George Mason University',
+      location: 'Fairfax, Virginia',
+      period: 'Oct 2022 - May 2023',
+      description: 'Built an iOS + watchOS app as part of a $712K federally funded project supporting neurodiverse young adults. Integrated HealthKit and Firebase to track heart rate and deliver real-time interventions, achieving 86% positive feedback in a pilot with 20+ participants across the D.C. area.',
+      technologies: ['SwiftUI', 'HealthKit', 'Firebase', 'iOS/watchOS', 'Research'],
+      link: 'https://www.gmu.edu/news/2021-11/new-smartwatch-app-help-can-be-close-your-wrist'
     }
   ]
 
@@ -76,14 +85,14 @@ export default function ExperienceSection() {
               <div className="flex-1 space-y-4">
                 <div>
                   <h3 className="text-xl font-bold text-white mb-2">{exp.title}</h3>
-                  <div className="flex items-center gap-4 text-gray-300 mb-3">
-                    <span className="font-semibold text-orange-500">{exp.company}</span>
-                    <div className="flex items-center gap-1">
-                      <MapPin size={16} />
+                  <div className="flex items-center gap-4 text-gray-300 mb-3 text-sm">
+                    <span className="font-semibold text-orange-500 whitespace-nowrap">{exp.company}</span>
+                    <div className="flex items-center gap-1 whitespace-nowrap">
+                      <MapPin size={14} />
                       <span>{exp.location}</span>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Calendar size={16} />
+                    <div className="flex items-center gap-1 whitespace-nowrap">
+                      <Calendar size={14} />
                       <span>{exp.period}</span>
                     </div>
                   </div>

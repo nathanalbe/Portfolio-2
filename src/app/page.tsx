@@ -75,8 +75,8 @@ export default function HomePage() {
             </div>
             
             {/* Profile Card - Fixed Position and Centered */}
-            <div className="lg:sticky lg:top-8 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto">
-              <div className="lg:max-w-sm mx-auto">
+            <div className="lg:sticky lg:top-8 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto lg:overflow-x-hidden">
+              <div className="w-full max-w-sm mx-auto">
                 <ProfileCard />
               </div>
             </div>

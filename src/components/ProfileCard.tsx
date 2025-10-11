@@ -16,7 +16,7 @@ export default function ProfileCard() {
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-      className="profile-card group"
+      className="profile-card group w-full max-w-sm mx-auto"
     >
       {/* Profile Image */}
       <div className="relative w-full h-72 mb-8 rounded-3xl overflow-hidden group-hover:scale-105 transition-transform duration-500">

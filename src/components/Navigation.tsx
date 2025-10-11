@@ -67,21 +67,21 @@ export default function Navigation() {
                   onClick={() => handleNavClick(item.href)}
                   className={`nav-link group relative ${
                     isActive 
-                      ? 'text-white bg-gradient-to-r from-orange-500 to-orange-600 shadow-lg' 
+                      ? 'text-white' 
                       : 'text-gray-400 hover:text-white hover:bg-white/10'
                   }`}
                   aria-label={item.label}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Icon size={20} className="transition-transform duration-200 group-hover:scale-110" />
                   {isActive && (
                     <motion.div
                       layoutId="activeIndicator"
-                      className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl"
+                      className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl shadow-lg"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
+                  <Icon size={20} className="relative z-10 transition-transform duration-200 group-hover:scale-110" />
                 </motion.button>
               </li>
             )
