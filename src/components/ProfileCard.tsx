@@ -1,13 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail } from 'lucide-react'
+import { Github, Linkedin, Mail, Instagram } from 'lucide-react'
 import Image from 'next/image'
 
 export default function ProfileCard() {
   const socialLinks = [
     { icon: Github, href: 'https://github.com/nathan-albe', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com/in/nathan-albe', label: 'LinkedIn' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/nathan-albe', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://www.instagram.com/n8tes.lyfe/', label: 'Instagram' },
     { icon: Mail, href: 'mailto:nathan.albe@outlook.com', label: 'Email' }
   ]
 
@@ -21,7 +22,7 @@ export default function ProfileCard() {
       {/* Profile Image */}
       <div className="relative w-full h-72 mb-8 rounded-3xl overflow-hidden group-hover:scale-105 transition-transform duration-500">
         <Image
-          src="/assets/profile-pic.png"
+          src="/assets/Headshot.JPG"
           alt="Nathan Albe"
           fill
           className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -47,8 +48,9 @@ export default function ProfileCard() {
         transition={{ duration: 0.6, delay: 0.5 }}
         className="text-gray-600 text-center text-sm leading-relaxed mb-8 px-2"
       >
-        Aspiring Software Engineer specializing in mobile development, full-stack, and data analysis. 
-        Passionate about creating innovative solutions and continuous learning.
+        Software Engineer Intern at Pinterest | Computer Science student at George Mason University 
+        with a minor in Computational Data Science. Passionate about mobile development, full-stack engineering, 
+        and machine learning.
       </motion.p>
 
       {/* Social Links */}

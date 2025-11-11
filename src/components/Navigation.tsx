@@ -45,16 +45,23 @@ export default function Navigation() {
   }
 
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'backdrop-blur-xl bg-gray-900/90 border-gray-700/50 shadow-2xl' 
-          : 'backdrop-blur-md bg-gray-800/70 border-gray-600/30 shadow-xl'
-      } rounded-2xl border shadow-2xl`}
-    >
+    <div className="fixed top-4 left-0 right-0 z-50">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-center lg:max-w-[calc(100%-380px-4rem)]">
+          <motion.nav
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ 
+              y: isScrolled ? 0 : -100, 
+              opacity: isScrolled ? 1 : 0,
+              pointerEvents: isScrolled ? 'auto' : 'none'
+            }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className={`transition-all duration-300 ${
+              isScrolled 
+                ? 'backdrop-blur-xl bg-gray-900/90 border-gray-700/50 shadow-2xl' 
+                : 'backdrop-blur-md bg-gray-800/70 border-gray-600/30 shadow-xl'
+            } rounded-2xl border shadow-2xl`}
+          >
       <div className="flex items-center justify-center px-4 py-2">
         <ul className="flex items-center gap-2">
           {navItems.map((item) => {
@@ -88,6 +95,9 @@ export default function Navigation() {
           })}
         </ul>
       </div>
-    </motion.nav>
+          </motion.nav>
+        </div>
+      </div>
+    </div>
   )
 }

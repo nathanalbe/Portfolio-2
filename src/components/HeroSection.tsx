@@ -1,15 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Calendar, Code, Database } from 'lucide-react'
 
 export default function HeroSection() {
-  const stats = [
-    { number: '2+', label: 'Years Experience', icon: Calendar },
-    { number: '5+', label: 'Projects Completed', icon: Code },
-    { number: '3', label: 'Technologies', icon: Database }
-  ]
-
   const skills = [
     {
       title: 'Mobile Development',
@@ -50,42 +43,17 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
         >
-          Aspiring Software Engineer specializing in mobile development, 
-          full-stack, and data analysis. Passionate about creating 
-          innovative solutions and continuous learning.
+          Software Engineer Intern at Pinterest | Computer Science student at George Mason University 
+          with a minor in Computational Data Science. Passionate about mobile development, 
+          full-stack engineering, and machine learning.
         </motion.p>
-      </motion.div>
-
-      {/* Stats */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.8 }}
-        className="grid grid-cols-3 gap-6 sm:gap-8 max-w-2xl mx-auto"
-      >
-        {stats.map((stat, index) => {
-          return (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
-              className="text-center group"
-            >
-              <div className="stat-number group-hover:text-orange-400 transition-colors duration-300">
-                {stat.number}
-              </div>
-              <div className="stat-label">{stat.label}</div>
-            </motion.div>
-          )
-        })}
       </motion.div>
 
       {/* Skill Cards */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.2 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
         className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto"
       >
         {skills.map((skill, index) => (
@@ -93,7 +61,7 @@ export default function HeroSection() {
             key={skill.title}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.4 + index * 0.2 }}
+            transition={{ duration: 0.6, delay: 0.8 + index * 0.2 }}
             className={`skill-card ${skill.color} group cursor-pointer`}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}

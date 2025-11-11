@@ -7,7 +7,7 @@ export default function ContactSection() {
   const socialLinks = [
     {
       icon: Linkedin,
-      href: 'https://linkedin.com/in/nathan-albe',
+      href: 'https://www.linkedin.com/in/nathan-albe',
       label: 'LinkedIn'
     },
     {
