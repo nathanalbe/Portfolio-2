@@ -12,7 +12,8 @@ export default function ExperienceSection() {
       period: 'May 2025 - Aug 2025',
       description: 'Developed features for Pinterest iOS app serving 50+ million users. Redesigned metadata layouts boosting clickthrough rates by 13% and built dynamic color filters increasing engagement by 17%. Developed GraphQL APIs and iOS features in Objective-C and Python.',
       technologies: ['Objective-C', 'Python', 'GraphQL', 'iOS Development'],
-      link: 'https://www.linkedin.com/posts/nathan-albe_pintern-pinterest-activity-7360671358873128963-obVd/'
+      link: 'https://www.linkedin.com/posts/nathan-albe_pintern-pinterest-activity-7360671358873128963-obVd/',
+      logo: '/assets/Pinterest_logo.png'
     },
     {
       title: 'Software Engineer Intern',
@@ -21,7 +22,8 @@ export default function ExperienceSection() {
       period: 'Aug 2024 - Jan 2025',
       description: 'Enhanced system reliability by automating Jenkins builds, containerizing internal tools with Docker, and developing Java UI components that streamlined workflows and reduced deployment time by 30%.',
       technologies: ['Java', 'Docker', 'Jenkins', 'Linux/Unix', 'JTheme'],
-      link: 'https://www.lockheedmartin.com/en-us/who-we-are/business-areas/rotary-and-mission-systems.html'
+      link: 'https://www.lockheedmartin.com/en-us/who-we-are/business-areas/rotary-and-mission-systems.html',
+      logo: '/assets/LMT_logo.png'
     },
     {
       title: 'Software Engineer Intern',
@@ -30,7 +32,8 @@ export default function ExperienceSection() {
       period: 'Jun 2024 - Aug 2024',
       description: 'Developed a VueJS + Quasar feedback web app with a built-in bug tracking and reporting system, cutting issue resolution time by 40% and earning 90% positive client feedback. Designed a PostgreSQL backend and collaborated in Agile sprints to streamline QA and product iteration.',
       technologies: ['VueJS', 'Quasar', 'PostgreSQL', 'Agile/Scrum'],
-      link: 'https://www.linkedin.com/feed/update/urn:li:activity:7228747069107163136/'
+      link: 'https://www.linkedin.com/feed/update/urn:li:activity:7228747069107163136/',
+      logo: '/assets/AFC_logo.jpg'
     },
     {
       title: 'iOS/Mobile Development Research Assistant',
@@ -39,7 +42,8 @@ export default function ExperienceSection() {
       period: 'Oct 2022 - May 2023',
       description: 'Built an iOS + watchOS app as part of a $712K federally funded project supporting neurodiverse young adults. Integrated HealthKit and Firebase to track heart rate and deliver real-time interventions, achieving 86% positive feedback in a pilot with 20+ participants across the D.C. area.',
       technologies: ['SwiftUI', 'HealthKit', 'Firebase', 'iOS/watchOS', 'Research'],
-      link: 'https://www.gmu.edu/news/2021-11/new-smartwatch-app-help-can-be-close-your-wrist'
+      link: 'https://www.gmu.edu/news/2021-11/new-smartwatch-app-help-can-be-close-your-wrist',
+      logo: '/assets/GMU_logo.jpg'
     }
   ]
 
@@ -79,10 +83,24 @@ export default function ExperienceSection() {
             initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 + index * 0.2 }}
-            className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300"
+            className="group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 overflow-visible"
           >
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-              <div className="flex-1 space-y-4">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+              {/* Logo on the left - mouse reactive */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.8 + index * 0.2 }}
+                whileHover={{ scale: 1.08, y: -4 }}
+                className="flex-shrink-0 w-16 h-16 lg:w-20 lg:h-20 rounded-xl bg-gray-900/95 border border-gray-600/50 shadow-lg flex items-center justify-center p-2 overflow-hidden group-hover:shadow-xl group-hover:border-orange-500/30 transition-all duration-500"
+              >
+                <motion.img
+                  src={exp.logo}
+                  alt={`${exp.company} logo`}
+                  className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                />
+              </motion.div>
+              <div className="flex-1 space-y-4 min-w-0">
                 <div>
                   <h3 className="text-xl font-bold text-white mb-2">{exp.title}</h3>
                   <div className="flex items-center gap-4 text-gray-300 mb-3 text-sm">
