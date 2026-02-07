@@ -6,16 +6,16 @@ import { ExternalLink, Github, Smartphone, Globe, Database } from 'lucide-react'
 export default function ProjectsSection() {
   const projects = [
     {
-      title: 'EcoTrack Mobile App',
-      description: 'A React Native app for tracking carbon footprint with real-time analytics and gamification features. Features include barcode scanning, location tracking, and social sharing.',
-      image: '/assets/project-1.png',
-      technologies: ['React Native', 'Firebase', 'Redux', 'Maps API'],
+      title: 'GridWatch',
+      description: 'My team built GridWatch in 7 hours and won 2nd place overall. A civic monitoring platform powered by AI agents that delivers real-time city updates from power outages and road closures to public safety alerts in one dashboard for residents and officials.',
+      image: '/assets/Gridwatch%20Project.jpg',
+      technologies: ['Python', 'FastAPI', 'Firestore', 'AI Agents', 'JavaScript'],
       links: {
-        github: 'https://github.com/nathan-albe/ecotrack',
-        demo: 'https://ecotrack-demo.vercel.app'
+        github: 'https://github.com/nathanalbe/GridWatch',
+        demo: 'https://gridwatch.dev/'
       },
-      category: 'Mobile Development',
-      icon: Smartphone
+      category: 'Civic Tech',
+      icon: Globe
     },
     {
       title: 'DataViz Dashboard',
@@ -85,8 +85,15 @@ export default function ProjectsSection() {
             >
               {/* Project Image */}
               <div className="relative h-48 bg-gray-700/30 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-blue-900/20 flex items-center justify-center">
-                  <Icon className="text-orange-500" size={48} />
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : null}
+                <div className={`absolute inset-0 flex items-center justify-center ${project.image ? 'bg-gradient-to-t from-black/60 to-transparent' : 'bg-gradient-to-br from-orange-500/20 to-blue-900/20'}`}>
+                  {!project.image && <Icon className="text-orange-500" size={48} />}
                 </div>
               </div>
 
