@@ -19,7 +19,7 @@ export default function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
-      
+
       // Update active section based on scroll position
       const sections = ['hero', 'about', 'experience', 'projects', 'contact']
       const scrollPosition = window.scrollY + 200
@@ -50,15 +50,15 @@ export default function Navigation() {
         <div className="flex justify-center lg:max-w-[calc(100%-380px-4rem)]">
           <motion.nav
             initial={{ y: -100, opacity: 0 }}
-            animate={{ 
-              y: isScrolled ? 0 : -100, 
+            animate={{
+              y: isScrolled ? 0 : -100,
               opacity: isScrolled ? 1 : 0,
               pointerEvents: isScrolled ? 'auto' : 'none'
             }}
             transition={{ duration: 0.3, ease: "easeOut" }}
             className={`transition-all duration-300 ${
-              isScrolled 
-                ? 'backdrop-blur-xl bg-gray-900/90 border-gray-700/50 shadow-2xl' 
+              isScrolled
+                ? 'backdrop-blur-xl bg-gray-900/90 border-gray-700/50 shadow-2xl'
                 : 'backdrop-blur-md bg-gray-800/70 border-gray-600/30 shadow-xl'
             } rounded-2xl border shadow-2xl`}
           >

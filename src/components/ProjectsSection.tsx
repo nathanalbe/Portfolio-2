@@ -57,7 +57,7 @@ export default function ProjectsSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-4xl font-bold text-white"
+          className="text-3xl sm:text-4xl font-bold text-white"
         >
           Featured Projects
         </motion.h2>
@@ -65,7 +65,7 @@ export default function ProjectsSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-xl text-gray-300 max-w-3xl mx-auto"
+          className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto"
         >
           A showcase of my recent work across mobile development, web applications, and data science
         </motion.p>
@@ -122,15 +122,15 @@ export default function ProjectsSection() {
                   ))}
                 </div>
 
-                {/* Links */}
-                <div className="flex gap-3 pt-2">
+                {/* Links - min 44px touch targets for mobile */}
+                <div className="flex flex-wrap gap-2 pt-2">
                   <motion.a
                     href={project.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300"
+                    className="flex items-center justify-center gap-2 min-h-[44px] min-w-[44px] py-3 px-4 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors duration-300"
                   >
                     <Github size={16} />
                     <span className="text-sm">Code</span>
@@ -141,7 +141,7 @@ export default function ProjectsSection() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 text-gray-400 hover:text-orange-500 transition-colors duration-300"
+                    className="flex items-center justify-center gap-2 min-h-[44px] min-w-[44px] py-3 px-4 rounded-lg text-gray-400 hover:text-orange-500 hover:bg-orange-500/10 transition-colors duration-300"
                   >
                     <ExternalLink size={16} />
                     <span className="text-sm">Live Demo</span>

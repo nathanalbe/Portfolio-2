@@ -61,7 +61,7 @@ export default function ExperienceSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-4xl font-bold text-white"
+          className="text-3xl sm:text-4xl font-bold text-white"
         >
           Experience
         </motion.h2>
@@ -69,7 +69,7 @@ export default function ExperienceSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-xl text-gray-300 max-w-3xl mx-auto"
+          className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto"
         >
           My professional journey in software development, from internships to full-time roles
         </motion.p>
@@ -83,7 +83,7 @@ export default function ExperienceSection() {
             initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 + index * 0.2 }}
-            className="group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 overflow-visible"
+            className="group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl p-5 sm:p-6 lg:p-8 border border-gray-700/50 hover:border-orange-500/50 transition-all duration-300 overflow-visible"
           >
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
               {/* Logo on the left - mouse reactive */}
@@ -103,14 +103,14 @@ export default function ExperienceSection() {
               <div className="flex-1 space-y-4 min-w-0">
                 <div>
                   <h3 className="text-xl font-bold text-white mb-2">{exp.title}</h3>
-                  <div className="flex items-center gap-4 text-gray-300 mb-3 text-sm">
-                    <span className="font-semibold text-orange-500 whitespace-nowrap">{exp.company}</span>
-                    <div className="flex items-center gap-1 whitespace-nowrap">
-                      <MapPin size={14} />
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-gray-300 mb-3 text-sm">
+                    <span className="font-semibold text-orange-500">{exp.company}</span>
+                    <div className="flex items-center gap-1">
+                      <MapPin size={14} className="flex-shrink-0" />
                       <span>{exp.location}</span>
                     </div>
-                    <div className="flex items-center gap-1 whitespace-nowrap">
-                      <Calendar size={14} />
+                    <div className="flex items-center gap-1">
+                      <Calendar size={14} className="flex-shrink-0" />
                       <span>{exp.period}</span>
                     </div>
                   </div>
@@ -139,7 +139,7 @@ export default function ExperienceSection() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 text-orange-500 hover:text-orange-400 transition-colors duration-300"
+                  className="flex items-center justify-center gap-2 min-h-[44px] min-w-[44px] py-3 px-4 text-orange-500 hover:text-orange-400 transition-colors duration-300 rounded-lg hover:bg-orange-500/10"
                 >
                   <span className="text-sm font-medium">View Details</span>
                   <ExternalLink size={16} />

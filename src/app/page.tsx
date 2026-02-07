@@ -32,7 +32,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-12 lg:gap-16 items-start">
             {/* Content Area - All Sections */}
-            <div className="space-y-20 lg:space-y-32">
+            <div className="space-y-12 sm:space-y-20 lg:space-y-32">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}

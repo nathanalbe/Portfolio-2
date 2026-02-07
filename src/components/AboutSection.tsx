@@ -41,7 +41,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-4xl font-bold text-white"
+          className="text-3xl sm:text-4xl font-bold text-white"
         >
           About Me
         </motion.h2>
@@ -49,7 +49,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-xl text-gray-300 max-w-3xl mx-auto"
+          className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto"
         >
           I&apos;m a Software Engineer Intern at Pinterest and a Computer Science student at George Mason University 
           with a minor in Computational Data Science. I have a strong foundation in mobile development, 
