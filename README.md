@@ -9,6 +9,8 @@ HTML-first personal portfolio built for Vercel. Typed content, real App Router r
 - Framer Motion (UI motion only; respects `prefers-reduced-motion`)
 - Zod content schemas
 - Lucide icons
+- Three.js via React Three Fiber + Drei (`/lab`)
+- Zustand + GSAP (lab camera / state sync)
 - Deploy: **Vercel**
 
 ## Routes
@@ -28,10 +30,28 @@ HTML-first personal portfolio built for Vercel. Typed content, real App Router r
 | `/feed.xml` | RSS |
 | `/contact` | Contact |
 | `/resume` | Resume placeholder |
+| `/lab` | R3F stadium sandbox (noindex) |
 
 ## Content
 
 Portfolio copy lives under `src/content/` (Zod-validated). Blog articles live under `content/blog/*.mdx` with YAML frontmatter.
+
+## 3D Lab
+
+`/lab` is an isolated React Three Fiber sandbox:
+
+- Loads `public/models/penalty-kick.min.glb` (Draco-compressed Mixamo Ch28 + kick, ~0.5MB, committed)
+- Plays the clip with a Three.js `AnimationMixer`
+- Stadium lighting, cast/receive shadows, textured materials
+- Falls back to a geometric avatar if the GLB fails to load
+- GSAP camera presets + Zustand UI sync
+
+Original ~113MB Mixamo export is gitignored. Recompress with:
+
+```bash
+npx @gltf-transform/cli optimize public/models/penalty-kick.glb public/models/penalty-kick.min.glb \
+  --compress draco --texture-compress webp --texture-size 1024
+```
 
 ## Local development
 
@@ -56,6 +76,7 @@ npm start
 
 ## Roadmap (deferred)
 
-- React Three Fiber stadium + avatar navigation
+- Custom avatar + stadium GLB assets
+- Production interactive portfolio scene
 - GSAP cinematic intro
 - CMS / admin

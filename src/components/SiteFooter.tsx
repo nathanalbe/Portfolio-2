@@ -35,6 +35,11 @@ export default function SiteFooter() {
               Resume
             </Link>
           </li>
+          <li>
+            <Link href="/lab" className="text-sm text-night-300 transition hover:text-flood-300">
+              3D Lab
+            </Link>
+          </li>
         </ul>
       </div>
     </footer>
