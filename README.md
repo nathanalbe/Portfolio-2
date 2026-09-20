@@ -9,6 +9,8 @@ HTML-first personal portfolio built for Vercel. Typed content, real App Router r
 - Framer Motion (UI motion only; respects `prefers-reduced-motion`)
 - Zod content schemas
 - Lucide icons
+- Three.js via React Three Fiber + Drei (`/lab`)
+- Zustand + GSAP (lab camera / state sync)
 - Deploy: **Vercel**
 
 ## Routes
@@ -28,10 +30,15 @@ HTML-first personal portfolio built for Vercel. Typed content, real App Router r
 | `/feed.xml` | RSS |
 | `/contact` | Contact |
 | `/resume` | Resume placeholder |
+| `/lab` | R3F stadium sandbox (noindex) |
 
 ## Content
 
 Portfolio copy lives under `src/content/` (Zod-validated). Blog articles live under `content/blog/*.mdx` with YAML frontmatter.
+
+## 3D Lab
+
+`/lab` is an isolated React Three Fiber sandbox for camera presets, hotspot raycasting, Zustand sync, and GSAP transitions. Geometric avatar proxy only — real GLB assets come later. Production pages stay HTML-first.
 
 ## Local development
 
@@ -56,6 +63,7 @@ npm start
 
 ## Roadmap (deferred)
 
-- React Three Fiber stadium + avatar navigation
+- Custom avatar + stadium GLB assets
+- Production interactive portfolio scene
 - GSAP cinematic intro
 - CMS / admin
