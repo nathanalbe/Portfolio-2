@@ -40,15 +40,17 @@ Portfolio copy lives under `src/content/` (Zod-validated). Blog articles live un
 
 `/lab` is an isolated React Three Fiber sandbox:
 
-- Loads `public/models/penalty-kick.glb` (Mixamo Ch28 + kick)
+- Loads `public/models/penalty-kick.min.glb` (Draco-compressed Mixamo Ch28 + kick, ~0.5MB, committed)
 - Plays the clip with a Three.js `AnimationMixer`
 - Stadium lighting, cast/receive shadows, textured materials
+- Falls back to a geometric avatar if the GLB fails to load
 - GSAP camera presets + Zustand UI sync
 
-GLB files are **gitignored** (~113MB). Copy locally:
+Original ~113MB Mixamo export is gitignored. Recompress with:
 
 ```bash
-cp "/Users/nathanalbe/Downloads/Soccer Penalty Kick (1).fbx.glb" public/models/penalty-kick.glb
+npx @gltf-transform/cli optimize public/models/penalty-kick.glb public/models/penalty-kick.min.glb \
+  --compress draco --texture-compress webp --texture-size 1024
 ```
 
 ## Local development

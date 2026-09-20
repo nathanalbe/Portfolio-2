@@ -3,8 +3,8 @@
 import { Canvas } from '@react-three/fiber'
 import { ContactShadows, Environment, OrbitControls } from '@react-three/drei'
 import { Suspense } from 'react'
+import AvatarWithFallback from './AvatarWithFallback'
 import CameraRig from './CameraRig'
-import RiggedAvatar from './RiggedAvatar'
 import StadiumShell from './StadiumShell'
 import { useSceneStore } from './store'
 
@@ -28,13 +28,7 @@ export default function LabCanvas({ reduceMotion = false }: LabCanvasProps) {
       <fog attach="fog" args={['#0b1016', 12, 28]} />
       <Suspense fallback={null}>
         <StadiumShell />
-        {/* Mixamo Ch28 + penalty kick clip via AnimationMixer */}
-        <RiggedAvatar
-          scale={0.01}
-          position={[0, 0, 0]}
-          rotation={[0, Math.PI, 0]}
-          loop
-        />
+        <AvatarWithFallback reduceMotion={reduceMotion} />
         <ContactShadows
           position={[0, 0.01, 0]}
           opacity={0.55}

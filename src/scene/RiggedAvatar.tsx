@@ -6,7 +6,8 @@ import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 import { useSceneStore } from './store'
 
-const MODEL_URL = '/models/penalty-kick.glb'
+/** Draco-compressed Mixamo character — committed for Vercel previews. */
+export const MODEL_URL = '/models/penalty-kick.min.glb'
 
 type RiggedAvatarProps = {
   /** Mixamo exports are often in centimeters; 0.01 brings them into meter space. */
@@ -28,7 +29,8 @@ export default function RiggedAvatar({
   loop = true,
 }: RiggedAvatarProps) {
   const group = useRef<THREE.Group>(null)
-  const { scene, animations } = useGLTF(MODEL_URL)
+  // Second arg enables the Draco decoder for *.min.glb
+  const { scene, animations } = useGLTF(MODEL_URL, true)
   const kickPlaying = useSceneStore((state) => state.kickPlaying)
   const setKickPlaying = useSceneStore((state) => state.setKickPlaying)
   const setAvailableClips = useSceneStore((state) => state.setAvailableClips)
@@ -143,4 +145,7 @@ export default function RiggedAvatar({
   )
 }
 
-useGLTF.preload(MODEL_URL)
+// Preload only in the browser after mount paths; avoid crashing SSR/module eval on 404.
+if (typeof window !== 'undefined') {
+  useGLTF.preload(MODEL_URL, true)
+}

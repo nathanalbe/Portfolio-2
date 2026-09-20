@@ -36,8 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
-# large local 3D assets (keep in public/models locally; do not commit ~100MB+ GLBs)
+# large local 3D source assets (keep originals local; commit only compressed *.min.glb)
 /public/models/*.glb
+!/public/models/*.min.glb
 /public/models/*.gltf
 /public/models/*.bin
 
