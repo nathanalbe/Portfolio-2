@@ -2,11 +2,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import FadeIn from '@/components/FadeIn'
 import { experiences, profile, projects } from '@/content'
+import { getFeaturedArticles } from '@/lib/blog'
 import { primaryNav } from '@/lib/nav'
 
 export default function HomePage() {
   const currentRole = experiences[0]
   const featured = projects.find((project) => project.featured) ?? projects[0]
+  const latestWriting = getFeaturedArticles().slice(0, 2)
 
   return (
     <div>
@@ -123,6 +125,14 @@ export default function HomePage() {
                     GitHub
                   </a>
                 ) : null}
+                {featured.relatedArticleSlugs?.[0] ? (
+                  <Link
+                    href={`/blog/${featured.relatedArticleSlugs[0]}`}
+                    className="btn-ghost"
+                  >
+                    Read case study
+                  </Link>
+                ) : null}
               </div>
             </div>
             {featured.image ? (
@@ -136,6 +146,43 @@ export default function HomePage() {
                 />
               </div>
             ) : null}
+          </div>
+        </section>
+      ) : null}
+
+      {latestWriting.length > 0 ? (
+        <section className="border-t border-night-400/10">
+          <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="mb-8 flex items-end justify-between gap-4">
+              <div>
+                <p className="section-kicker">The Press Box</p>
+                <h2 className="mt-2 font-display text-3xl uppercase tracking-wide text-night-50">
+                  Latest writing
+                </h2>
+              </div>
+              <Link href="/blog" className="text-sm text-night-400 transition hover:text-flood-300">
+                All articles →
+              </Link>
+            </div>
+            <ul className="grid gap-4 md:grid-cols-2">
+              {latestWriting.map((article) => (
+                <li key={article.slug}>
+                  <Link
+                    href={`/blog/${article.slug}`}
+                    className="glass-panel block rounded-2xl p-5 transition hover:border-flood-400/40"
+                  >
+                    <p className="section-kicker">{article.category}</p>
+                    <h3 className="mt-2 font-display text-xl uppercase tracking-wide text-night-50">
+                      {article.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-night-300">{article.description}</p>
+                    <p className="mt-4 text-xs uppercase tracking-[0.14em] text-night-400">
+                      {article.readingTimeMinutes} min read
+                    </p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       ) : null}

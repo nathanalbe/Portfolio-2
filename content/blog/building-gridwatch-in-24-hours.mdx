@@ -1,0 +1,48 @@
+---
+title: Building GridWatch in 24 Hours
+description: How four students built an agentic civic intelligence platform and placed 2nd at DevFest DC.
+date: "2026-09-14"
+category: Building
+tags:
+  - AI
+  - Backend
+  - Hackathon
+  - FastAPI
+featured: true
+draft: false
+relatedProject: gridwatch
+seoTitle: Building GridWatch in 24 Hours — Nathan Albe
+seoDescription: A retrospective on building GridWatch, an agentic AI civic intelligence platform that placed 2nd at DevFest DC.
+---
+
+It started with a simple question: if a city is having a bad day — outages, closures, public-safety alerts — why do residents still have to stitch that story together across five apps?
+
+## The idea
+
+We wanted one dashboard that could answer: *what is happening in my city right now?* Not a polished municipal portal. A real-time civic intelligence surface powered by agents that gather, normalize, and explain events.
+
+## Architecture
+
+At a high level:
+
+1. **Ingestion** — agents pull structured and unstructured civic signals.
+2. **Orchestration** — a FastAPI layer coordinates agent work and stores state in Firestore.
+3. **Presentation** — a dashboard surfaces prioritized alerts for residents and officials.
+
+The hard part was not “call an LLM.” The hard part was keeping agent outputs grounded, ranked, and useful under time pressure.
+
+## What I owned
+
+I focused on **backend and agent orchestration** — defining how agents collaborated, how failures were handled, and how the API stayed fast enough for a live demo.
+
+## What we learned
+
+- Scope ruthlessly. A thin vertical slice beats a half-finished platform.
+- Agent systems need guardrails early: timeouts, fallbacks, and clear ownership of each task.
+- Judges respond to clarity. A readable story of problem → solution → demo mattered as much as the stack.
+
+## Result
+
+**2nd place** out of 34 teams and 194 participants at DevFest DC.
+
+If you want the product view — stack, role, and links — explore the [GridWatch project](/projects/gridwatch).

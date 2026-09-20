@@ -21,6 +21,7 @@ const raw = [
     category: 'Civic Tech',
     featured: true,
     relatedSkillIds: ['python', 'fastapi', 'gcp'],
+    relatedArticleSlugs: ['building-gridwatch-in-24-hours'],
   },
 ]
 

@@ -1,0 +1,47 @@
+---
+title: Building My 3D Portfolio with Three.js
+description: Why this portfolio is content-first, stadium-inspired, and only then a 3D experience.
+date: "2026-09-02"
+category: Engineering
+tags:
+  - Three.js
+  - React
+  - WebGL
+  - Next.js
+featured: true
+draft: false
+seoTitle: Building My 3D Portfolio with Three.js — Nathan Albe
+seoDescription: Notes on designing a soccer-inspired interactive portfolio without letting WebGL own the content.
+---
+
+The temptation with a 3D portfolio is to start with the spectacle.
+
+I am deliberately doing the opposite.
+
+## The principle
+
+> The 3D experience earns attention. The portfolio content earns the interview.
+
+That means About, Experience, Projects, Skills, Leadership, Education, and writing must work as semantic HTML — shareable URLs, keyboard access, readable on a recruiter laptop — before any WebGL ships.
+
+## What is shipping first
+
+1. **Foundation** — typed content, real routes, Vercel deploy.
+2. **Press Box** — this blog, MDX articles, project links.
+3. **3D world** — stadium, avatar hotspots, camera transitions.
+4. **Cinematic intro** — penalty kick → celebration → portfolio reveal.
+
+## Why soccer?
+
+The metaphor is not decoration. It is information architecture:
+
+- Player → me
+- Body regions → career sections
+- Press Box → writing
+- Stadium → the world those pieces live in
+
+## What comes next
+
+React Three Fiber, Drei, GSAP camera timelines, and carefully compressed GLB assets. But none of that should make Experience or a case study harder to open.
+
+If you are reading this, the content layer is already doing its job.

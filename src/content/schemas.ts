@@ -50,6 +50,29 @@ export const projectSchema = z.object({
   category: z.string(),
   featured: z.boolean().default(false),
   relatedSkillIds: z.array(z.string()).optional(),
+  relatedArticleSlugs: z.array(z.string()).optional(),
+})
+
+export const articleCategorySchema = z.enum([
+  'Engineering',
+  'Building',
+  'Career',
+  'Leadership',
+  'Personal',
+])
+
+export const articleFrontmatterSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  date: z.string(),
+  category: articleCategorySchema,
+  tags: z.array(z.string()).default([]),
+  featured: z.boolean().default(false),
+  draft: z.boolean().default(false),
+  relatedProject: z.string().optional(),
+  coverImage: z.string().optional(),
+  seoTitle: z.string().optional(),
+  seoDescription: z.string().optional(),
 })
 
 export const skillSchema = z.object({
@@ -107,3 +130,11 @@ export type SkillGroup = z.infer<typeof skillGroupSchema>
 export type Leadership = z.infer<typeof leadershipSchema>
 export type Education = z.infer<typeof educationSchema>
 export type PersonalInterest = z.infer<typeof personalInterestSchema>
+export type ArticleCategory = z.infer<typeof articleCategorySchema>
+export type ArticleFrontmatter = z.infer<typeof articleFrontmatterSchema>
+
+export type Article = ArticleFrontmatter & {
+  slug: string
+  content: string
+  readingTimeMinutes: number
+}
