@@ -9,35 +9,52 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#fff7ed',
-          100: '#ffedd5',
-          200: '#fed7aa',
-          300: '#fdba74',
-          400: '#fb923c',
-          500: '#FCA311', // Orange accent
-          600: '#ea580c',
-          700: '#c2410c',
-          800: '#9a3412',
-          900: '#7c2d12',
+        pitch: {
+          50: '#f2f7f4',
+          100: '#e0ebe4',
+          200: '#c2d7cb',
+          300: '#97b8a8',
+          400: '#6a947f',
+          500: '#4a7761',
+          600: '#385f4c',
+          700: '#2e4c3e',
+          800: '#273e34',
+          900: '#21342c',
+          950: '#111c17',
         },
-        secondary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#14213D', // Dark blue accent
-          600: '#0369a1',
-          700: '#0284c7',
-          800: '#0369a1',
-          900: '#0c4a6e',
-        }
+        flood: {
+          50: '#fff9eb',
+          100: '#ffefc6',
+          200: '#ffdd88',
+          300: '#ffc44a',
+          400: '#ffab20',
+          500: '#f98c07',
+          600: '#dd6702',
+          700: '#b74606',
+          800: '#94350c',
+          900: '#7a2c0d',
+        },
+        night: {
+          50: '#f4f6f8',
+          100: '#e3e8ed',
+          200: '#c9d3dd',
+          300: '#a4b4c4',
+          400: '#7890a6',
+          500: '#5d748b',
+          600: '#4a5d72',
+          700: '#3d4c5d',
+          800: '#35414f',
+          900: '#1a222c',
+          950: '#0b1016',
+        },
+      },
+      fontFamily: {
+        display: ['var(--font-display)', 'sans-serif'],
+        sans: ['var(--font-body)', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',
-        'slide-down': 'slideDown 0.5s ease-out',
       },
       keyframes: {
         fadeIn: {
@@ -46,10 +63,6 @@ const config: Config = {
         },
         slideUp: {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        slideDown: {
-          '0%': { opacity: '0', transform: 'translateY(-20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       },

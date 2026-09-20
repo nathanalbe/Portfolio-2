@@ -1,12 +1,35 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Barlow_Condensed, Source_Sans_3 } from 'next/font/google'
+import SiteNav from '@/components/SiteNav'
+import SiteFooter from '@/components/SiteFooter'
+import { profile } from '@/content'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const display = Barlow_Condensed({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  variable: '--font-display',
+  display: 'swap',
+})
+
+const body = Source_Sans_3({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-body',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
-  title: 'Nathan Albe - Software Engineer',
-  description: 'Nathan Albe - Aspiring Software Engineer specializing in mobile development, full-stack, and data analysis',
+  title: {
+    default: `${profile.name} — ${profile.title}`,
+    template: `%s — ${profile.name}`,
+  },
+  description: profile.shortBio,
+  openGraph: {
+    title: `${profile.name} — ${profile.title}`,
+    description: profile.shortBio,
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
@@ -15,9 +38,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {children}
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
+      <body className="font-sans">
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
+        <div className="site-shell flex min-h-screen flex-col">
+          <SiteNav />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   )

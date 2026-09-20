@@ -1,136 +1,59 @@
-# Nathan Albe - Portfolio
+# Nathan Albe — Portfolio
 
-A modern, responsive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. Features smooth animations, mobile-first design, and a professional layout.
+HTML-first personal portfolio built for Vercel. Typed content, real App Router routes, and a soccer-broadcast visual identity — ready for a later 3D stadium layer.
 
-## 🚀 Features
+## Stack
 
-- **Modern Stack**: Built with Next.js 15, TypeScript, and Tailwind CSS
-- **Responsive Design**: Mobile-first approach with perfect responsiveness
-- **Smooth Animations**: Framer Motion for beautiful transitions and micro-interactions
-- **Performance Optimized**: Server-side rendering and automatic optimization
-- **SEO Ready**: Built-in SEO optimization with Next.js
-- **Type Safe**: Full TypeScript support for better development experience
+- Next.js 15 (App Router) + TypeScript
+- Tailwind CSS
+- Framer Motion (UI motion only; respects `prefers-reduced-motion`)
+- Zod content schemas
+- Lucide icons
+- Deploy: **Vercel**
 
-## 🛠️ Tech Stack
+## Routes
 
-- **Framework**: Next.js 15
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Deployment**: Vercel (recommended)
+| Path | Purpose |
+|------|---------|
+| `/` | Home |
+| `/about` | About + Off the Field |
+| `/experience` | Career timeline (includes Airtable SWE) |
+| `/projects` | Project list |
+| `/projects/[slug]` | Project detail |
+| `/skills` | Grouped skills |
+| `/leadership` | ColorStack and leadership |
+| `/education` | Education |
+| `/blog` | Press Box stub (MDX next) |
+| `/contact` | Contact |
+| `/resume` | Resume placeholder |
 
-## 🚀 Getting Started
+## Content
 
-### Prerequisites
+All portfolio copy lives under `src/content/` and is validated with Zod. Edit those files to update the site without hunting through components.
 
-- Node.js 18+ 
-- npm or yarn
+## Local development
 
-### Installation
-
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd portfolio-nextjs
-```
-
-2. Install dependencies:
 ```bash
 npm install
-```
-
-3. Run the development server:
-```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000).
 
-## 📁 Project Structure
-
-```
-src/
-├── app/
-│   ├── globals.css          # Global styles and Tailwind imports
-│   ├── layout.tsx          # Root layout component
-│   └── page.tsx            # Main page component
-├── components/
-│   ├── Navigation.tsx       # Navigation bar component
-│   ├── ProfileCard.tsx     # Profile card component
-│   ├── HeroSection.tsx     # Hero section component
-│   ├── AboutSection.tsx    # About section component
-│   ├── ExperienceSection.tsx # Experience section component
-│   ├── ProjectsSection.tsx # Projects section component
-│   └── ContactSection.tsx  # Contact section component
-└── public/
-    └── assets/             # Static assets (images, resume, etc.)
+```bash
+npm run build
+npm start
 ```
 
-## 🎨 Customization
+## Deploy on Vercel
 
-### Colors
-The portfolio uses a custom color scheme defined in `tailwind.config.ts`:
-- **Primary Orange**: #FCA311
-- **Secondary Blue**: #14213D
-- **Background**: Dark gray theme
+1. Import this GitHub repository in the Vercel dashboard.
+2. Framework preset: Next.js (defaults are fine).
+3. Deploy. No static-export / `out` directory is required.
 
-### Content
-Update the following files to customize your content:
-- `src/components/ProfileCard.tsx` - Personal information
-- `src/components/HeroSection.tsx` - Hero content and stats
-- `src/components/AboutSection.tsx` - About section content
-- `src/components/ExperienceSection.tsx` - Work experience
-- `src/components/ProjectsSection.tsx` - Featured projects
-- `src/components/ContactSection.tsx` - Contact information
+## Roadmap (deferred)
 
-### Assets
-Replace assets in `public/assets/`:
-- `profile-pic.png` - Your profile picture
-- `Nathan_Albe_Resume.pdf` - Your resume
-- Project images for the projects section
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Deploy automatically
-
-### Other Platforms
-The app can be deployed to any platform that supports Next.js:
-- Netlify
-- AWS Amplify
-- Railway
-- DigitalOcean App Platform
-
-## 📱 Responsive Design
-
-The portfolio is fully responsive with breakpoints:
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
-
-## 🎯 Performance
-
-- **Lighthouse Score**: 95+ across all metrics
-- **Core Web Vitals**: Optimized for excellent user experience
-- **Image Optimization**: Next.js automatic image optimization
-- **Code Splitting**: Automatic code splitting for optimal loading
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 📞 Contact
-
-Nathan Albe - [nathan.albe@outlook.com](mailto:nathan.albe@outlook.com)
-
-Project Link: [https://github.com/nathan-albe/portfolio-nextjs](https://github.com/nathan-albe/portfolio-nextjs)
+- MDX Press Box blog
+- React Three Fiber stadium + avatar navigation
+- GSAP cinematic intro
+- CMS / admin
