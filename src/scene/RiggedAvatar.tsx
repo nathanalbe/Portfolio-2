@@ -4,7 +4,7 @@ import { useEffect, useLayoutEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
-import { SkeletonUtils } from 'three/examples/jsm/utils/SkeletonUtils.js'
+import { clone as cloneSkinned } from 'three/examples/jsm/utils/SkeletonUtils.js'
 import { useSceneStore } from './store'
 
 /** Draco-compressed Mixamo character — committed for Vercel previews. */
@@ -39,8 +39,8 @@ export default function RiggedAvatar({
   const actionRef = useRef<THREE.AnimationAction | null>(null)
 
   const { root, fitScale } = useMemo(() => {
-    // SkeletonUtils preserves bone ↔ SkinnedMesh binding.
-    const cloned = SkeletonUtils.clone(scene) as THREE.Object3D
+    // SkeletonUtils.clone preserves bone ↔ SkinnedMesh binding.
+    const cloned = cloneSkinned(scene) as THREE.Object3D
 
     cloned.traverse((obj) => {
       if (!(obj as THREE.Mesh).isMesh) return
