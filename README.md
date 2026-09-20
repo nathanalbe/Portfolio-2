@@ -38,7 +38,18 @@ Portfolio copy lives under `src/content/` (Zod-validated). Blog articles live un
 
 ## 3D Lab
 
-`/lab` is an isolated React Three Fiber sandbox for camera presets, hotspot raycasting, Zustand sync, and GSAP transitions. Geometric avatar proxy only — real GLB assets come later. Production pages stay HTML-first.
+`/lab` is an isolated React Three Fiber sandbox:
+
+- Loads `public/models/penalty-kick.glb` (Mixamo Ch28 + kick)
+- Plays the clip with a Three.js `AnimationMixer`
+- Stadium lighting, cast/receive shadows, textured materials
+- GSAP camera presets + Zustand UI sync
+
+GLB files are **gitignored** (~113MB). Copy locally:
+
+```bash
+cp "/Users/nathanalbe/Downloads/Soccer Penalty Kick (1).fbx.glb" public/models/penalty-kick.glb
+```
 
 ## Local development
 

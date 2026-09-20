@@ -41,16 +41,26 @@ type SceneState = {
   activeSection: LabSection
   hoveredHotspot: LabSection | null
   isTransitioning: boolean
+  kickPlaying: boolean
+  availableClips: string[]
   setActiveSection: (section: LabSection) => void
   setHoveredHotspot: (section: LabSection | null) => void
   setTransitioning: (value: boolean) => void
+  setKickPlaying: (value: boolean) => void
+  toggleKick: () => void
+  setAvailableClips: (clips: string[]) => void
 }
 
 export const useSceneStore = create<SceneState>((set) => ({
   activeSection: 'home',
   hoveredHotspot: null,
   isTransitioning: false,
+  kickPlaying: true,
+  availableClips: [],
   setActiveSection: (section) => set({ activeSection: section }),
   setHoveredHotspot: (section) => set({ hoveredHotspot: section }),
   setTransitioning: (value) => set({ isTransitioning: value }),
+  setKickPlaying: (value) => set({ kickPlaying: value }),
+  toggleKick: () => set((state) => ({ kickPlaying: !state.kickPlaying })),
+  setAvailableClips: (clips) => set({ availableClips: clips }),
 }))

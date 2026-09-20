@@ -3,8 +3,8 @@
 import { Canvas } from '@react-three/fiber'
 import { ContactShadows, Environment, OrbitControls } from '@react-three/drei'
 import { Suspense } from 'react'
-import AvatarProxy from './AvatarProxy'
 import CameraRig from './CameraRig'
+import RiggedAvatar from './RiggedAvatar'
 import StadiumShell from './StadiumShell'
 import { useSceneStore } from './store'
 
@@ -20,7 +20,7 @@ export default function LabCanvas({ reduceMotion = false }: LabCanvasProps) {
       shadows
       dpr={[1, 1.75]}
       camera={{ position: [3.2, 1.8, 5.5], fov: 42, near: 0.1, far: 80 }}
-      gl={{ antialias: true, alpha: true }}
+      gl={{ antialias: true, alpha: true, toneMappingExposure: 1.05 }}
       className="h-full w-full touch-none"
       aria-label="Interactive 3D stadium sandbox"
     >
@@ -28,13 +28,19 @@ export default function LabCanvas({ reduceMotion = false }: LabCanvasProps) {
       <fog attach="fog" args={['#0b1016', 12, 28]} />
       <Suspense fallback={null}>
         <StadiumShell />
-        <AvatarProxy />
+        {/* Mixamo Ch28 + penalty kick clip via AnimationMixer */}
+        <RiggedAvatar
+          scale={0.01}
+          position={[0, 0, 0]}
+          rotation={[0, Math.PI, 0]}
+          loop
+        />
         <ContactShadows
           position={[0, 0.01, 0]}
-          opacity={0.45}
+          opacity={0.55}
           scale={12}
-          blur={2.2}
-          far={4}
+          blur={2.4}
+          far={5}
         />
         <Environment preset="night" />
       </Suspense>
@@ -45,8 +51,8 @@ export default function LabCanvas({ reduceMotion = false }: LabCanvasProps) {
         enableRotate={!isTransitioning}
         maxPolarAngle={Math.PI / 2.05}
         minDistance={2}
-        maxDistance={10}
-        target={[0, 1.1, 0]}
+        maxDistance={12}
+        target={[0, 1.0, 0]}
       />
     </Canvas>
   )

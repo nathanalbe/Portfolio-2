@@ -36,6 +36,11 @@ yarn-error.log*
 # vercel
 .vercel
 
+# large local 3D assets (keep in public/models locally; do not commit ~100MB+ GLBs)
+/public/models/*.glb
+/public/models/*.gltf
+/public/models/*.bin
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

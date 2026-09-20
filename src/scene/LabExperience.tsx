@@ -24,13 +24,22 @@ export default function LabExperience() {
   const activeSection = useSceneStore((state) => state.activeSection)
   const hoveredHotspot = useSceneStore((state) => state.hoveredHotspot)
   const isTransitioning = useSceneStore((state) => state.isTransitioning)
+  const kickPlaying = useSceneStore((state) => state.kickPlaying)
+  const availableClips = useSceneStore((state) => state.availableClips)
   const setActiveSection = useSceneStore((state) => state.setActiveSection)
+  const toggleKick = useSceneStore((state) => state.toggleKick)
   const [reduceMotion, setReduceMotion] = useState(false)
   const [webglOk, setWebglOk] = useState(true)
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const update = () => setReduceMotion(media.matches)
+    const update = () => {
+      const prefersReduced = media.matches
+      setReduceMotion(prefersReduced)
+      if (prefersReduced) {
+        useSceneStore.getState().setKickPlaying(false)
+      }
+    }
     update()
     media.addEventListener('change', update)
     return () => media.removeEventListener('change', update)
@@ -81,11 +90,30 @@ export default function LabExperience() {
             Stadium sandbox
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-night-300">
-            Practice R3F scene setup, avatar hotspots, Zustand sync, and GSAP camera presets
-            before real GLB assets land. Click a body region or use the controls.
+            Loads the Mixamo-rigged character GLB with a Three.js{' '}
+            <code className="text-flood-300">AnimationMixer</code> playing the
+            penalty-kick clip. Shadows, textures, and stadium lighting are wired
+            for the sandbox.
           </p>
         </div>
 
+        <div className="glass-panel rounded-2xl p-5 sm:p-6">
+          <p className="section-kicker">Kick animation</p>
+          <p className="mt-2 text-sm text-night-300">
+            Clip:{' '}
+            <span className="text-flood-300">
+              {availableClips[0] ?? 'loading…'}
+            </span>
+          </p>
+          <button
+            type="button"
+            onClick={toggleKick}
+            className="btn-primary mt-4"
+            aria-pressed={kickPlaying}
+          >
+            {kickPlaying ? 'Pause kick' : 'Play kick'}
+          </button>
+        </div>
         <div className="glass-panel rounded-2xl p-5 sm:p-6">
           <p className="section-kicker">Active</p>
           <p className="mt-2 font-display text-xl uppercase tracking-wide text-flood-300">
@@ -127,10 +155,10 @@ export default function LabExperience() {
         <div className="glass-panel rounded-2xl p-5 text-sm text-night-400">
           <p className="section-kicker text-night-400">Learning checklist</p>
           <ul className="mt-3 list-disc space-y-1 pl-5">
-            <li>Scene / lights / materials</li>
-            <li>Raycast hotspots ↔ UI state</li>
+            <li>GLB load via useGLTF</li>
+            <li>AnimationMixer kick playback</li>
+            <li>Shadows + textured materials</li>
             <li>GSAP camera transitions</li>
-            <li>Reduced-motion snap presets</li>
             <li>WebGL fallback path</li>
           </ul>
         </div>
