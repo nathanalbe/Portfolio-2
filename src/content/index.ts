@@ -14,4 +14,7 @@ export type {
   Leadership,
   Education,
   PersonalInterest,
+  Article,
+  ArticleCategory,
+  ArticleFrontmatter,
 } from './schemas'
