@@ -34,12 +34,11 @@ export class AvatarErrorBoundary extends Component<Props, State> {
     }
     return (
       this.props.children ?? (
-        <RiggedAvatar
-          scale={0.01}
-          position={[0, 0, 0]}
-          rotation={[0, Math.PI, 0]}
-          loop={!this.props.reduceMotion}
-        />
+      <RiggedAvatar
+        position={[0, 0, 0]}
+        rotation={[0, Math.PI, 0]}
+        loop={!this.props.reduceMotion}
+      />
       )
     )
   }
@@ -53,7 +52,6 @@ export default function AvatarWithFallback({
   return (
     <AvatarErrorBoundary reduceMotion={reduceMotion}>
       <RiggedAvatar
-        scale={0.01}
         position={[0, 0, 0]}
         rotation={[0, Math.PI, 0]}
         loop={!reduceMotion}
